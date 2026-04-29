@@ -42,11 +42,30 @@ body {
   background: var(--bg-light);
 }
 
+.content-area {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 30px;
+  overflow-y: auto;
+}
+
 .app {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+
+.page-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
 }
 
 .app > h1 {
