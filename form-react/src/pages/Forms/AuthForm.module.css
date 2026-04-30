@@ -7,20 +7,27 @@
 .title {
   margin: 0 0 8px 0;
   text-align: center;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .input {
   padding: 10px 12px;
   font-size: 14px;
-  border: 1px solid #ddd;
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  border: 1px solid var(--input-border);
   border-radius: 6px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background-color 0.3s ease, color 0.3s ease;
+}
+
+.input::placeholder {
+  color: var(--text-light);
 }
 
 .input:focus {
-  border-color: #667eea;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
 .button {
@@ -28,24 +35,24 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  background: #667eea;
-  color: white;
+  background: var(--primary-color);
+  color: var(--white);
   border: none;
   border-radius: 6px;
   transition: background 0.2s;
 }
 
 .button:hover:not(:disabled) {
-  background: #5568d3;
+  background: var(--primary-color-hover);
 }
 
 .button:disabled {
-  background: #aaa;
+  background: var(--button-disabled);
   cursor: not-allowed;
 }
 
 .error {
-  color: #e74c3c;
+  color: var(--error-color);
   font-size: 13px;
   margin: 4px 0 0 0;
   text-align: center;
@@ -54,12 +61,12 @@
 .footerText {
   text-align: center;
   font-size: 14px;
-  color: #555;
+  color: var(--text-secondary);
   margin: 8px 0 0 0;
 }
 
 .footerText a {
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
 }

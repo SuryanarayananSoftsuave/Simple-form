@@ -1,0 +1,162 @@
+/* ---------- BACKDROP (full-screen dim layer) ---------- */
+.movie-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* ---------- WHITE CARD (the actual modal box) ---------- */
+.movie-modal-content {
+    background-color: var(--card-bg);
+    border: 1px solid var(--section-border);
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px var(--shadow-lg);
+    animation: slideUp 0.25s ease-out;
+}
+
+/* ---------- HEADER (title + close button row) ---------- */
+.movie-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.movie-modal-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* ---------- CLOSE BUTTON (the X) ---------- */
+.movie-modal-close-button {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.movie-modal-close-button:hover {
+    background-color: var(--border-soft);
+    color: var(--text-primary);
+}
+
+/* ---------- FORM LAYOUT (responsive 2-column grid) ---------- */
+.movie-modal-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* Each field: label stacked above its input */
+.movie-modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Make the Plot field span the full row */
+.movie-modal-field:nth-child(7) {
+    grid-column: 1 / -1;
+}
+
+.movie-modal-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.2px;
+}
+
+.movie-modal-input {
+    padding: 10px 14px;
+    background-color: var(--input-background);
+    color: var(--text-primary);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.movie-modal-input::placeholder {
+    color: var(--text-light);
+}
+
+.movie-modal-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* ---------- SUBMIT BUTTON (spans full width) ---------- */
+.movie-modal-button {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.movie-modal-button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.movie-modal-button:active {
+    transform: translateY(1px);
+}
+
+/* ---------- RESPONSIVE: collapse to single column on small screens ---------- */
+@media (max-width: 600px) {
+    .movie-modal-form {
+        grid-template-columns: 1fr;
+    }
+    .movie-modal-field:nth-child(7) {
+        grid-column: auto;
+    }
+    .movie-modal-content {
+        padding: 20px;
+    }
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

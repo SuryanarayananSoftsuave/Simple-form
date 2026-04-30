@@ -3,7 +3,7 @@ export default function Settings() {
     <div className="page-content">
       <h1>Settings</h1>
       <p>Manage your application settings and preferences here.</p>
-      <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
+      <div style={{ marginTop: '20px', padding: '20px', backgroundColor: 'var(--card-bg)', border: '1px solid var(--section-border)', borderRadius: '8px', color: 'var(--text-primary)' }}>
         <h2>Settings Options</h2>
         <div style={{ marginBottom: '15px' }}>
           <label>

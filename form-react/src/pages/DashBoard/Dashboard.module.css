@@ -8,17 +8,19 @@
 .card {
   flex: 1;
   min-width: 200px;
-  background: #ffffff;
+  background: var(--card-bg);
+  border: 1px solid var(--section-border);
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border-left: 4px solid var(--primary-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .cardTitle {
   margin: 0;
   font-size: 14px;
-  color: #777;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -27,20 +29,20 @@
   margin: 8px 0 0 0;
   font-size: 32px;
   font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .cardSubtext {
   margin: 4px 0 0 0;
   font-size: 13px;
-  color: #999;
+  color: var(--text-light);
 }
 
 .viewLink {
   display: inline-block;
   margin-top: 12px;
   font-size: 13px;
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
 }

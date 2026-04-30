@@ -1,11 +1,10 @@
-import React from 'react';
 import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../../redux/slices/authSlice";
+import ThemeToggle from "../../ThemeToggle";
 
 function NavBar() {
-    // Read user from Redux store - any component can do this!
     const user = useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
 
@@ -18,27 +17,32 @@ function NavBar() {
             <div className={styles['nav-brand']}>
                 <h1 className={styles['nav-title']}>React Application</h1>
             </div>
-            <div className={styles['nav-links']}>
+
+            <div className={styles['nav-links-center']}>
                 <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/contact">Contact</Link>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/map">Map</Link>
+            </div>
+
+            <div className={styles['nav-links-right']}>
+                <ThemeToggle />
 
                 {user ? (
                     <>
-                        <span style={{ marginLeft: 12 }}>Hi, {user.name}</span>
-                        <button onClick={handleLogout} style={{ marginLeft: 8, cursor: "pointer" }}>
+                        <span className={styles['nav-user']}>Hi, {user.name}</span>
+                        <button onClick={handleLogout} className={styles['nav-button']}>
                             Logout
                         </button>
                     </>
                 ) : (
                     <>
-                        <Link to="/login" style={{ marginLeft: 12 }}>Login</Link>
-                        <Link to="/register" style={{ marginLeft: 8 }}>Register</Link>
+                        <Link to="/login" className={styles['nav-button']}>Login</Link>
+                        <Link to="/register" className={styles['nav-button']}>Register</Link>
                     </>
                 )}
             </div>
         </nav>
-    )
+    );
 }
 
-export default NavBar
+export default NavBar;

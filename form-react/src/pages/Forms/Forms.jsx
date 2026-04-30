@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import PersonalSection from "../components/personalSection/PersonalSection";
-import TechnicalSection from "../components/TechnicalSection/TechnicalSection";
+import PersonalSection from "../../components/personalSection/PersonalSection";
+import TechnicalSection from "../../components/TechnicalSection/TechnicalSection";
 
 export default function Forms() {
     const [personalData, setPersonalData] = useState({

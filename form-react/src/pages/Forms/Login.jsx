@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { registerUser, clearError } from "../redux/slices/authSlice";
+import { loginUser, clearError } from "../../redux/slices/authSlice";
 import styles from "./AuthForm.module.css";
 
-function Register() {
-  const [name, setName] = useState("");
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,21 +23,12 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(registerUser({ name, email, password }));
+    dispatch(loginUser({ email, password }));
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <h2 className={styles.title}>Register</h2>
-
-      <input
-        type="text"
-        placeholder="Full Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-        className={styles.input}
-      />
+      <h2 className={styles.title}>Login</h2>
 
       <input
         type="email"
@@ -59,16 +49,16 @@ function Register() {
       />
 
       <button type="submit" disabled={loading} className={styles.button}>
-        {loading ? "Creating account..." : "Register"}
+        {loading ? "Logging in..." : "Login"}
       </button>
 
       {error && <p className={styles.error}>{error}</p>}
 
       <p className={styles.footerText}>
-        Already have an account? <Link to="/login">Login here</Link>
+        No account? <Link to="/register">Register here</Link>
       </p>
     </form>
   );
 }
 
-export default Register;
+export default Login;

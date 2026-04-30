@@ -6,12 +6,14 @@ import AuthLayout from "./components/layouts/AuthLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/DashBoard/Dashboard";
 import Profile from "./pages/Profile";
-import Forms from "./pages/Forms";
-import Todos from "./pages/Todos";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Forms from "./pages/Forms/Forms";
+import Todos from "./pages/Todo/Todos";
+import Login from "./pages/Forms/Login";
+import Register from "./pages/Forms/Register";
+import MovieList from "./pages/MovieList/MovieList";
+import MapPage from "./pages/MapPage/MapPage";
 
 function App() {
   return (
@@ -61,6 +63,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Todos />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/movies"
+          element={
+            <ProtectedRoute>
+              <MovieList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <ProtectedRoute>
+              <MapPage />
             </ProtectedRoute>
           }
         />

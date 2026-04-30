@@ -1,0 +1,17 @@
+.pageWrapper {
+    height: calc(100vh - 160px);
+    min-height: 400px;
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+}
+
+.mapContainer {
+    height: 100%;
+    width: 100%;
+    min-width: 400px;
+    min-height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 0;
+}

@@ -5,6 +5,8 @@ import styles from "./Dashboard.module.css";
 export default function Dashboard() {
   // Read from Redux: total number of todos
   const totalTodos = useSelector((state) => state.todos.todos.length);
+  const totalMovies = useSelector((state) => state.movies.movieList.length);
+
 
   // (Optional) read the user too
   const user = useSelector((state) => state.auth.user);
@@ -28,6 +30,20 @@ export default function Dashboard() {
               : "tasks in your list"}
           </p>
           <Link to="/todos" className={styles.viewLink}>
+            View all →
+          </Link>
+        </div>
+        <div className={styles.card}>
+          <p className={styles.cardTitle}>Total Movies</p>
+          <p className={styles.cardValue}>{totalMovies}</p>
+          <p className={styles.cardSubtext}>
+            {totalMovies === 0
+              ? "No movies yet"
+              : totalMovies === 1
+              ? "movie in your list"
+              : "movies in your list"}
+          </p>
+          <Link to="/movies" className={styles.viewLink}>
             View all →
           </Link>
         </div>

@@ -1,21 +1,131 @@
+/* ============================================ */
+/*  THEME VARIABLES                             */
+/* ============================================ */
+
+/* ---------- LIGHT THEME (default) ---------- */
 :root {
   color-scheme: light;
+
+  /* Surfaces */
   --bg-light: #f5f5f5;
   --white: #ffffff;
+  --black: #1a1a1a;
+  --card-bg: #ffffff;
+  --section-bg: #ffffff;
+
+  /* Text */
   --text-primary: #333333;
   --text-secondary: #666666;
   --text-light: #999999;
+
+  /* Inputs */
   --input-background: #ffffff;
   --input-border: #cccccc;
   --input-border-focus: #4a90e2;
-  --accent-primary: #4a90e2;
-  --section-bg: #ffffff;
+
+  /* Borders + dividers */
   --section-border: #e0e0e0;
+  --border-soft: #eeeeee;
+
+  /* Sidebar + hover surfaces */
+  --sidebar-bg: #f4f4f4;
+  --hover-bg: #e0e0e0;
+
+  /* Brand colors */
+  --primary-color: #4a90e2;
+  --primary-color-hover: #3a7bc8;
+  --primary-color-active: #2a5a9e;
+  --accent-primary: #4a90e2;
   --button-bg: #4a90e2;
   --button-hover: #3a7bc8;
+  --button-disabled: #aaaaaa;
+
+  /* Status */
   --error-color: #d9534f;
   --success-color: #5cb85c;
+
+  /* Edit / "info" button (indigo) */
+  --info-bg: #eef2ff;
+  --info-bg-hover: #c7d2fe;
+  --info-text: #4338ca;
+  --info-border: #c7d2fe;
+
+  /* Delete / "danger" button (red) */
+  --danger-bg: #fee2e2;
+  --danger-bg-hover: #fecaca;
+  --danger-text: #b91c1c;
+  --danger-border: #fecaca;
+
+  /* Effects */
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --shadow-md: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.2);
+  --backdrop: rgba(0, 0, 0, 0.55);
+  --focus-ring: rgba(74, 144, 226, 0.2);
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- DARK THEME ---------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg-light: #121212;
+  --white: #1e1e1e;
+  --black: #f5f5f5;
+  --card-bg: #1e1e1e;
+  --section-bg: #1e1e1e;
+
+  /* Text */
+  --text-primary: #f5f5f5;
+  --text-secondary: #b0b0b0;
+  --text-light: #888888;
+
+  /* Inputs */
+  --input-background: #2a2a2a;
+  --input-border: #404040;
+  --input-border-focus: #6ba6ed;
+
+  /* Borders + dividers */
+  --section-border: #333333;
+  --border-soft: #2a2a2a;
+
+  /* Sidebar + hover surfaces */
+  --sidebar-bg: #1a1a1a;
+  --hover-bg: #2f2f2f;
+
+  /* Brand colors — slightly brighter for dark backgrounds */
+  --primary-color: #6ba6ed;
+  --primary-color-hover: #4a90e2;
+  --primary-color-active: #3a7bc8;
+  --accent-primary: #6ba6ed;
+  --button-bg: #6ba6ed;
+  --button-hover: #4a90e2;
+  --button-disabled: #555555;
+
+  /* Status — softened for dark mode */
+  --error-color: #ff7b75;
+  --success-color: #7ed580;
+
+  /* Edit / "info" button (indigo, dark) */
+  --info-bg: #1e2a4a;
+  --info-bg-hover: #2c3e6e;
+  --info-text: #b1c5ff;
+  --info-border: #2c3e6e;
+
+  /* Delete / "danger" button (red, dark) */
+  --danger-bg: #3a1818;
+  --danger-bg-hover: #5a2424;
+  --danger-text: #ff8c8c;
+  --danger-border: #5a2424;
+
+  /* Effects — stronger shadow on dark */
+  --shadow-color: rgba(44, 44, 44, 0.5);
+  --shadow-md: rgba(0, 0, 0, 0.5);
+  --shadow-lg: rgba(0, 0, 0, 0.7);
+  --backdrop: rgba(0, 0, 0, 0.75);
+  --focus-ring: rgba(107, 166, 237, 0.25);
 }
 
 *,
@@ -33,6 +143,8 @@ body,
 
 body {
   background: var(--bg-light);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-wrapper {
@@ -64,7 +176,7 @@ body {
 
 .page-content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
   padding: 0 20px;
 }
 
@@ -126,14 +238,14 @@ body {
 }
 
 .field input:hover {
-  border-color: #aaa;
+  border-color: var(--text-light);
 }
 
 .field input:focus,
 .field select:focus {
   border-color: var(--input-border-focus);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+  box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
 .sec-personal,
@@ -143,7 +255,7 @@ body {
   border-radius: 8px;
   padding: 25px;
   margin-bottom: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px var(--shadow-color);
 }
 
 .sec-header {
@@ -183,7 +295,7 @@ body {
 }
 
 .submit-btn:active {
-  background: #2a5a9e;
+  background: var(--primary-color-active);
 }
 
 .form-actions {

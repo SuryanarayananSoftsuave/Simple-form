@@ -4,13 +4,16 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background: var(--bg-light);
+  transition: background-color 0.3s ease;
 }
 
 .card {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px var(--shadow-lg);
   padding: 30px;
   width: 100%;
   max-width: 400px;
+  transition: background-color 0.3s ease;
 }
